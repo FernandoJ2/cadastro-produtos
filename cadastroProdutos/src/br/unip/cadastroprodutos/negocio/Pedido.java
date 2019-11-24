@@ -4,7 +4,7 @@ public class Pedido {
 	private double ir;
 	private double frete;
 	private double totalPedido;
-	private String enderecoEntraga;
+	private String enderecoEntrega;
 
 	public double getIr() {
 		return ir;
@@ -30,11 +30,11 @@ public class Pedido {
 		this.totalPedido = totalPedido;
 	}
 
-	public String getEnderecoEntraga() {
-		return enderecoEntraga;
+	public String getEnderecoEntrega() {
+		return enderecoEntrega;
 	}
 
-	public void setEnderecoEntraga(String enderecoEntraga) {
-		this.enderecoEntraga = enderecoEntraga;
+	public void setEnderecoEntrega(String enderecoEntrega) {
+		this.enderecoEntrega = enderecoEntrega;
 	}
 }
