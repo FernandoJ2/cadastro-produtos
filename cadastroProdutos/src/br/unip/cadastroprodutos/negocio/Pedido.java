@@ -1,10 +1,19 @@
 package br.unip.cadastroprodutos.negocio;
 
 public class Pedido {
+	private int id;
 	private double ir;
 	private double frete;
 	private double totalPedido;
 	private String enderecoEntrega;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public double getIr() {
 		return ir;

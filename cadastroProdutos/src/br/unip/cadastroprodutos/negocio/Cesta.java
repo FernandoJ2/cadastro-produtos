@@ -1,10 +1,11 @@
 package br.unip.cadastroprodutos.negocio;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cesta {
-	private String data;
+	private Date data;
 	private Cliente cliente;
 	private List<Produto> item = new ArrayList<>();
 	private int qtd;
@@ -12,11 +13,11 @@ public class Cesta {
 	private double total;
 	private Pedido pedido;
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
