@@ -1,9 +1,11 @@
 package br.unip.cadastroprodutos.negocio;
 
+import java.util.Date;
+
 public class Cliente {
 	private int codCliente;
 	private String nome;
-	private String dtNascimento;
+	private Date dtNascimento;
 	private String sexo;
 
 	public int getCodCliente() {
@@ -22,11 +24,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getDtNascimento() {
+	public Date getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(String dtNascimento) {
+	public void setDtNascimento(Date dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 

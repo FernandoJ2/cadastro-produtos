@@ -13,16 +13,15 @@ import br.unip.cadastroprodutos.negocio.Produto;
 
 public class ProdutoDAO {
 	private static final Logger LOGGER = Logger.getLogger(ProdutoDAO.class.getName());
-	private static final String INSERT_PRODUTO = "insert into Produto (codProduto, valorProd, descricao) values(?,?,?) ";
-	private static final String SELECT_PRODUTOS = "select codProduto, valorProd, descricao produtos";
+	private static final String INSERT_PRODUTO = "insert into Produto (valorProd, descricao) values(?,?) ";
+	private static final String SELECT_PRODUTOS = "select codProduto, valorProd, descricao from Produto";
 	
 	public int adicionar(Produto obj) {
 		String[] idRetornado = { "id" };
 
 		try (Connection conexao = ConnectionFactory.conexaoSQLServer(); PreparedStatement pstmt = conexao.prepareStatement(INSERT_PRODUTO, idRetornado);) {
-			pstmt.setInt(1, obj.getCodProduto());
-			pstmt.setDouble(2, obj.getValorProd());
-			pstmt.setString(3, obj.getDescricao());
+			pstmt.setDouble(1, obj.getValorProd());
+			pstmt.setString(2, obj.getDescricao());
 
 			if (pstmt.executeUpdate() == 0) {
 				LOGGER.info("Insert falhou, nenhuma linha afetada.");	
@@ -46,7 +45,7 @@ public class ProdutoDAO {
 	public List<Produto> obterTodos() {
 		try (Connection conexao = ConnectionFactory.conexaoSQLServer(); PreparedStatement pstmt = conexao.prepareStatement(SELECT_PRODUTOS);) {
 			try (ResultSet rs = pstmt.executeQuery()) {
-				List<Produto> produtos = new ArrayList<Produto>();
+				List<Produto> produtos = new ArrayList<>();
 				while (rs.next()) {
 					Produto produto = new Produto();
 					produto.setCodProduto(rs.getInt("codProduto"));
